@@ -9,7 +9,6 @@ return {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
         "saadparwaiz1/cmp_luasnip",
-        "j-hui/fidget.nvim",
     },
     config = function()
         local cmp_lsp = require("cmp_nvim_lsp")
@@ -22,11 +21,12 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "tsserver",
-                "eslint",
+                "lua_ls",
+                "rust_analyzer",
                 "ocamllsp",
             },
             handlers = {
-                function (server_name)
+                function(server_name)
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -49,7 +49,7 @@ return {
         })
 
         local cmp = require("cmp")
-        local cmp_select = {behavior = cmp.SelectBehavior.Select}
+        local cmp_select = { behavior = cmp.SelectBehavior.Select }
         cmp.setup({
             snippet = {
                 expand = function(args)
