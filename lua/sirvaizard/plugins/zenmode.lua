@@ -29,6 +29,6 @@ return {
 			vim.wo.rnu = false
 			vim.opt.colorcolumn = "0"
 			SetupColorScheme()
-		end)	
+		end)
 	end
 }
